@@ -1,0 +1,15 @@
+<h1>Poll results</h1>
+<h2>{{question}}</h2>
+
+{% if choices.count > 0 %}
+  <ul>
+    {% for choice in choices %}
+      <li>
+        <span>{{ choice.choice_text }}</span>
+        <span> --  {{ choice.votes }} vote{{ choice.votes|pluralize }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+<a href="{% url 'polls:detail' question.id %}">Vote again</a>
